@@ -23,6 +23,18 @@ class HangoutDetails extends Component {
     this.getInfo();
   }
 
+
+  onDelete(){
+    let hangoutId = this.state.details.id;
+
+    axios.delete(`http://localhost:3000/api/hangoutzs/${hangoutId}`)
+      .then(response => {
+        this.props.history.push('/'); 
+      }).catch(err => {
+        console.log(err); 
+      })
+  }
+
   render(){
     return (
       <div>
@@ -37,9 +49,9 @@ class HangoutDetails extends Component {
                 
                 
             </ul>    
-            <Link className="btn "to={`/hangoutz/edit/${this.state.details.id}`}>Edit</Link>
+            <Link className="btn" to={`/hangoutz/edit/${this.state.details.id}`}>Edit</Link>
 
-            <button className="btn red right">Delete</button>
+            <button onClick={this.onDelete.bind(this)}className="btn red right">Delete</button>
         </div>
 
       </div>
