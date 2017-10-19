@@ -1,8 +1,8 @@
 import React, {Component} from 'react'; 
 import axios from 'axios'; 
-import {Link} from 'react-router-dom'; 
+ 
 
-import MeetupItem from './MeetupItem'; 
+import HangoutItem from './HangoutItem'; 
 
 class Hangoutz extends Component {
     constructor(){
@@ -27,8 +27,8 @@ class Hangoutz extends Component {
     render() {
         const meetupItems = this.state.meetups.map((meetup, index) => {
             return (
-                <MeetupItem
-                    index={index}
+                <HangoutItem
+                    key={index}
                     name={meetup.name}
                     id={meetup.id}
                 
