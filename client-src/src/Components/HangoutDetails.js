@@ -37,6 +37,9 @@ class HangoutDetails extends Component {
                 
                 
             </ul>    
+            <Link className="btn "to={`/hangoutz/edit/${this.state.details.id}`}>Edit</Link>
+
+            <button className="btn red right">Delete</button>
         </div>
 
       </div>
