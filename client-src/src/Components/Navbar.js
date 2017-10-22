@@ -23,7 +23,7 @@ class NavBar extends Component {
                     <Link to="/"><i className=" fa fa-users"></i>Hangouts</Link>
                  </li>
                  <li>
-                    <Link to="/hangouts/add"><i className=" fa fa-plus"></i>Add Hangouts</Link>
+                    <Link to="/hangoutz/add"><i className=" fa fa-plus"></i>Add Hangouts</Link>
                  </li>
                  <li>
                     <Link to="/about"><i className=" fa fa-question-circle"></i>About</Link>

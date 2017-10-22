@@ -11,7 +11,8 @@ class EditHangout extends Component {
         this.state = {
             name: '',
             city: '',
-            address: ''
+            address: '',
+            id: ''
         }
 
         this.handleInputChange = this.handleInputChange.bind(this); 
@@ -24,7 +25,8 @@ class EditHangout extends Component {
         this.setState({
             name: details.data.name,
             city: details.data.city,
-            address: details.data.address
+            address: details.data.address,
+            id: details.data.id
 
         })
     }
@@ -33,13 +35,22 @@ class EditHangout extends Component {
         this.getHangoutDetails(); 
     }
 
+    async editHangout(updatedInfo) {
+        const response = await axios.put(`http://localhost:3000/api/hangoutzs/${this.state.id}`, updatedInfo); 
+        
+        this.props.history.push('/'); 
+    }
+
     onSubmit(e) {
+        e.preventDefault(); 
 
         const updatedMeetup = {
             name: this.refs.name.value,
             city: this.refs.city.value,
             address: this.refs.address.value
         }
+
+        this.editHangout(updatedMeetup); 
     }
 
     handleInputChange(e) {
